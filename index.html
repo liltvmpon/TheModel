@@ -369,7 +369,7 @@ function pOver(stat, line, mu){
 const gameLbl = g => `${g.away} @ ${g.home} · ${ct(g.tip)} CT`;
 // best props
 const NP = NBA.picks||[];
-document.getElementById("nprec").innerHTML = `Props where the blended chance beats the price by the widest margin, one per player, with the best place to bet it across ${esc((NBA.books||["DraftKings"]).join(", "))}. Against real lines this approach has been mixed so far (won on this season's DraftKings lines, lost early last season), so treat these as leans. ${NBA.record&&NBA.record.summary?`Live: <b>${esc(NBA.record.summary)}</b>.`:""}`;
+document.getElementById("nprec").innerHTML = `Props where the blended chance beats the price by the widest margin, one per player, with the best place to bet it across ${esc((NBA.books||["DraftKings"]).join(", "))}. Tested against about 8,900 real prop lines from 2024–2026, this approach was close to break-even overall: it lost about 3% early in 2024–25, and won on this season's DraftKings lines over a small sample. It has not shown a proven edge, so treat these as leans. ${NBA.record&&NBA.record.summary?`Live: <b>${esc(NBA.record.summary)}</b>.`:""}`;
 document.getElementById("npicks").innerHTML = NP.length ? NP.map(p=>{const g=gById[String(p.event_id)]; return `<div class="pk">
   <div class="g" style="text-transform:uppercase;letter-spacing:.08em;font-weight:600">${esc(SN[p.stat])}${p.status?`<span class="inj">${esc(p.status)}</span>`:""}</div>
   <div class="p">${esc(p.player)} ${p.side==="over"?"Over":"Under"} ${p.line}</div>
